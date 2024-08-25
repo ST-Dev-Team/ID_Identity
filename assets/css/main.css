@@ -22,7 +22,7 @@
   --background-color: #ffffff; /* Background color for the entire website, including individual sections */
   --default-color: #444444; /* Default color used for the majority of the text content across the entire website */
   --heading-color: #2f4d5a; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #67b0d1; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --accent-color: #829a81; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
   --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
   --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
@@ -30,7 +30,7 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #67b0d1; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #829a81; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -53,7 +53,7 @@
 }
 
 .accent-background {
-  --background-color: #67b0d1;
+  --background-color: rgba(242, 245, 246, 0.51);
   --default-color: #ffffff;
   --heading-color: #ffffff;
   --surface-color: #8ec4dd;
@@ -184,14 +184,14 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: #4b99bb;
+  --background-color: rgba(57, 92, 106, 0.84);
 }
 
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Desktop Navigation */
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
   .navmenu {
     padding: 0;
   }
@@ -235,7 +235,9 @@ h6 {
   .navmenu .active,
   .navmenu .active:focus {
     color: var(--contrast-color);
-    background-color: var(--nav-hover-color);
+    /*background-color: var(--nav-hover-color);*/
+    /*background-color: rgba(103, 176, 209, 0.5);*/
+    border-bottom: 3px solid var(--nav-hover-color);
   }
 
   .navmenu .dropdown ul {
@@ -294,10 +296,14 @@ h6 {
     left: -100%;
     visibility: visible;
   }
+  /* 1000px 이상일 때 토글 버튼 숨기기 */
+  .mobile-nav-toggle {
+    display: none;
+  }
 }
 
 /* Mobile Navigation */
-@media (max-width: 1199px) {
+@media (max-width: 999px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
     font-size: 28px;
@@ -715,12 +721,12 @@ section,
 .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 60px 0;
+  padding: 70px 0 0 0;
   scroll-margin-top: 74px;
   overflow: clip;
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 800px) {
 
   section,
   .section {
@@ -764,90 +770,159 @@ section,
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-.hero {
+.hero-img-pc {
   width: 100%;
-  min-height: 100vh;
-  position: relative;
-  padding: 120px 0 60px 0;
+  height: auto;
+  display: block;
+  margin-bottom: 0;
+  max-width: 1500px; /* 최대 너비를 1500px로 제한합니다 */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-img-mobile {
+  display: none;
+}
+
+/* 모바일 환경에서 PC 이미지를 숨기고, 모바일 이미지를 표시 */
+@media (max-width: 767px) {
+  .hero-img-pc {
+    display: none;
+  }
+
+  .hero-img-mobile {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* 필요에 따라 설정 */
+    margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1500px) {
+  /* PC 환경에서 1500px 이상의 화면 */
+  .hero-img-pc {
+    max-width: 1700px; /* 최대 너비를 1500px로 제한합니다 */
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/*--------------------------------------------------------------
+# content Section
+--------------------------------------------------------------*/
+.content-section {
+  padding: 70px 20px; /* 위쪽에 70px 패딩, 좌우 20px */
+  background-color: #ffffff; /* 배경색을 흰색으로 설정 */
+}
+
+.content-container {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto; /* 중앙 정렬 */
 }
 
-.hero:before {
-  content: "";
-  background: color-mix(in srgb, var(--background-color), transparent 70%);
-  position: absolute;
-  inset: 0;
-  z-index: 2;
+.content-image {
+  flex: 1; /* 이미지 영역을 적절히 확장 */
+  padding-right: 20px; /* 이미지와 텍스트 사이에 여백 */
 }
 
-.hero img {
+.content-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px; /* 모서리를 약간 둥글게 처리 */
+}
+
+.content-text {
+  flex: 1; /* 텍스트 영역을 적절히 확장 */
+  padding-left: 40px;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #333333; /* 텍스트 색상 */
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    flex-direction: column; /* 모바일 환경에서는 세로로 정렬 */
+  }
+  .content-image,
+  .content-text {
+    padding: 0; /* 모바일에서는 패딩을 제거 */
+    font-size: 16px;
+  }
+}
+
+.content h5{
+  text-align: left;
+}
+
+.content p {
+  /*padding-top: 20px;*/
+  text-align: left;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.about-btn {
+  display: inline-block;
+  /*background-color: #67b0d1;*/
+  color: #fff;
+  padding: 10px 30px;
+  font-size: 1rem;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.about-btn:hover {
+  background-color: #55a3bf;
+  color: #fff;
+}
+
+.icon-box {
+  background: rgba(229, 236, 229, 0.2);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.icon-box:hover {
+  transform: translateY(-10px);
+}
+
+.icon-box i {
+  font-size: 2.5rem;
+  color: #bcccbb;
+  margin-bottom: 15px;
+}
+
+.icon-box h4 {
+  font-size: 1.5rem;
+  color: #2f4d5a;
+  margin-bottom: 10px;
+}
+
+.icon-box p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.stretched-link::after {
   position: absolute;
-  inset: 0;
-  display: block;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  content: "";
   z-index: 1;
 }
 
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
-.hero h2 {
-  margin: 0;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 56px;
-  text-transform: uppercase;
-  text-shadow: -1px 0 2px #2f4d5a;
-}
-
-.hero p {
-  color: var(--default-color);
-  margin: 10px 0 0 0;
-  font-size: 20px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  text-shadow: -1px 0 2px #2f4d5a;
-}
-
-@media (max-width: 640px) {
-  .hero h1 {
-    font-size: 30px;
-    line-height: 36px;
-  }
-}
-
-.hero .btn-scroll {
-  transition: 0.4s;
-  color: var(--default-color);
-  display: block;
-  margin-top: 30px;
-  animation: btn-up-down 1s ease-in-out infinite alternate-reverse both;
-}
-
-.hero .btn-scroll i {
-  font-size: 48px;
-}
-
-.hero .btn-scroll:hover {
-  color: var(--accent-color);
-}
-
-@keyframes btn-up-down {
-  0% {
-    transform: translateY(5px);
-  }
-
-  100% {
-    transform: translateY(-5px);
-  }
-}
 
 /*--------------------------------------------------------------
 # About Section
