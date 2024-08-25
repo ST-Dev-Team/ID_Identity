@@ -372,7 +372,7 @@ h6 {
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
+    color: var(--nav-hover-color);
   }
 
   .navmenu .active i,
@@ -423,7 +423,9 @@ h6 {
     inset: 0;
     background: rgba(33, 37, 41, 0.8);
     transition: 0.3s;
+    max-height: 55vh; /* 화면 높이의 70%로 제한 */
   }
+
 
   .mobile-nav-active .navmenu>ul {
     display: block;
@@ -668,6 +670,22 @@ h6 {
     transition-delay: 0 !important;
   }
 }
+
+/* 하단 이미지 컨테이너 스타일링 */
+.footer-image-container {
+  text-align: center; /* 이미지를 가운데 정렬 */
+  padding: 50px 0; /* 위아래에 약간의 여백 추가 */
+  background-color: #f9f9f9; /* 필요에 따라 배경색 설정 */
+}
+
+/* 하단 이미지 스타일링 */
+.footer-image {
+  max-width: 100%; /* 이미지가 화면 크기에 맞게 조정되도록 함 */
+  height: auto; /* 비율을 유지하면서 크기 조정 */
+
+}
+
+
 
 /*--------------------------------------------------------------
 # Global Page Titles & Breadcrumbs
