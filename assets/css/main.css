@@ -30,7 +30,7 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #829a81; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: rgb(130, 154, 129); /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -283,6 +283,7 @@ h6 {
     top: 100%;
     visibility: visible;
   }
+
 
   .navmenu .dropdown .dropdown ul {
     top: 0;
@@ -746,6 +747,7 @@ section,
 .section-title h2 {
   font-size: 32px;
   font-weight: 700;
+  margin-top:35px;
   margin-bottom: 15px;
   position: relative;
   z-index: 1;
@@ -1575,20 +1577,29 @@ section,
 /*--------------------------------------------------------------
 # Contact Section
 --------------------------------------------------------------*/
-.contact .info-wrap {
+/* 공통 스타일 */
+.contact {
+
+  padding-bottom: 30px;
+}
+
+.contact .info-wrap, .contact .php-email-form {
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
 }
 
 @media (max-width: 575px) {
-  .contact .info-wrap {
+  .contact .info-wrap, .contact .php-email-form {
     padding: 20px;
   }
 }
 
+/* 정보 항목 스타일 */
 .contact .info-item {
   margin-bottom: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .contact .info-item i {
@@ -1610,12 +1621,14 @@ section,
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 5px;
+  color: var(--heading-color);
 }
 
 .contact .info-item p {
   padding: 0;
   margin-bottom: 0;
   font-size: 14px;
+  color: var(--default-color);
 }
 
 .contact .info-item:hover i {
@@ -1623,9 +1636,9 @@ section,
   color: var(--contrast-color);
 }
 
+/* 폼 스타일 */
 .contact .php-email-form {
   background-color: var(--surface-color);
-  height: 100%;
   padding: 30px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
@@ -1638,25 +1651,31 @@ section,
 
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
+.contact .php-email-form input[type=tel],
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
+  border-radius: 5px;
   color: var(--default-color);
   background-color: var(--surface-color);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+.contact .php-email-form .dropdown:focus,
 .contact .php-email-form input[type=text]:focus,
 .contact .php-email-form input[type=email]:focus,
+.contact .php-email-form input[type=tel]:focus,
 .contact .php-email-form textarea:focus {
   border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
 
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
+.contact .php-email-form input[type=tel]::placeholder,
 .contact .php-email-form textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
   color: color-mix(in srgb, var(--default-color), transparent 70%);
 }
 
@@ -1667,10 +1686,54 @@ section,
   padding: 10px 30px;
   transition: 0.4s;
   border-radius: 50px;
+  cursor: pointer;
 }
 
 .contact .php-email-form button[type=submit]:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 25%);
+}
+
+/* 프로그램 선택 버튼 스타일 추가 */
+.program-select {
+  font-size: 14px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  transition: border-color 0.3s, box-shadow 0.3s;
+  text-align: left;
+  width: 100%;
+  display: inline-block;
+}
+
+.program-select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.program-select::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 70%);
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+  width: 100%;
+  padding: 0;
+  border-radius: 5px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(130, 154, 129, 0.28);
+  color: #333;
 }
 
 /*--------------------------------------------------------------
