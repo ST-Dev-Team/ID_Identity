@@ -184,7 +184,7 @@ h6 {
 /* Global Header on Scroll
 ------------------------------*/
 .scrolled .header {
-  --background-color: rgba(57, 92, 106, 0.84);
+  --background-color: rgb(9, 41, 97);
 }
 
 /*--------------------------------------------------------------
@@ -791,6 +791,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero-img-pc {
+  position: relative;
   width: 100%;
   height: auto;
   display: block;
@@ -804,6 +805,40 @@ section,
   display: none;
 }
 
+/*.hero .btn-scroll {*/
+/*  position: absolute; !* Hero 섹션 내부에서 절대 위치를 지정 *!*/
+/*  bottom: 100px; !* Hero 이미지의 아래쪽에서 20px 떨어진 위치에 배치 *!*/
+/*  left: 50%; !* 왼쪽에서 50% 위치로 설정 *!*/
+/*  transform: translateX(-50%); !* 중앙으로 정렬 *!*/
+/*  z-index: 1; !* 이미지 위로 올리기 위해 z-index 설정 *!*/
+/*  color: white; !* 아이콘의 색상을 하얀색으로 변경 *!*/
+/*  opacity: 1;*/
+
+.hero .container {
+  position: relative;
+  z-index: 3;
+}
+
+.hero .btn-scroll {
+  position: absolute; /* Hero 섹션 내부에서 절대 위치를 지정 */
+  bottom: 30px; /* Hero 이미지의 아래쪽에서 20px 떨어진 위치에 배치 */
+  left: 50%; /* 왼쪽에서 50% 위치로 설정 */
+  transform: translateX(-50%); /* 중앙으로 정렬 */
+  transition: 0.4s;
+  color: var(--default-color);
+  display: block;
+  margin-top: 30px;
+  animation: btn-up-down 1s ease-in-out infinite alternate-reverse both;
+}
+
+.hero .btn-scroll i {
+  font-size: 48px;
+}
+
+.hero .btn-scroll:hover {
+  color: var(--accent-color);
+}
+
 /* 모바일 환경에서 PC 이미지를 숨기고, 모바일 이미지를 표시 */
 @media (max-width: 767px) {
   .hero-img-pc {
@@ -811,6 +846,7 @@ section,
   }
 
   .hero-img-mobile {
+    position: relative;
     display: block;
     width: 100%;
     height: auto;
@@ -857,7 +893,7 @@ section,
 
 .content-text {
   flex: 1; /* 텍스트 영역을 적절히 확장 */
-  padding-left: 40px;
+  padding-left: 30px;
   font-size: 20px;
   line-height: 1.6;
   color: #333333; /* 텍스트 색상 */
