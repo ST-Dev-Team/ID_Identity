@@ -1817,7 +1817,6 @@ section,
 --------------------------------------------------------------*/
 /* 공통 스타일 */
 .contact {
-
   padding-bottom: 30px;
 }
 
@@ -1825,6 +1824,10 @@ section,
   background-color: var(--surface-color);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
   padding: 30px;
+}
+
+.contact p b{
+  color: var(--accent-color)
 }
 
 @media (max-width: 575px) {
