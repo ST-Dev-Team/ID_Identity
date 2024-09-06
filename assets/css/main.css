@@ -30,7 +30,7 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #ffffff;  /* The default color of the main navmenu links */
-  --nav-hover-color: #67b0d1; /* Applied to main navmenu links when they are hovered over or active */
+  --nav-hover-color: #66bce4; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #444444; /* Used for navigation links of the dropdown items in the navigation menu. */
@@ -577,6 +577,7 @@ h6 {
     background-color: var(--nav-hover-color);
   }
 
+
   .navmenu .dropdown:hover>ul {
     opacity: 1;
     top: 100%;
@@ -1050,7 +1051,7 @@ h6 {
 section, .section {
   color: var(--default-color);
   background-color: var(--background-color);
-  padding: 70px 0 0 0;
+  padding: 60px 0 0 0;
   scroll-margin-top: 74px;
   overflow: clip;
 }
@@ -1136,7 +1137,7 @@ section, .section {
   transition: 0.4s;
   color: var(--default-color);
   display: block;
-  margin-top: 30px;
+  margin-top: 20px;
   animation: btn-up-down 1s ease-in-out infinite alternate-reverse both;
 }
 
@@ -1161,6 +1162,7 @@ section, .section {
     height: auto;
     object-fit: cover; /* 필요에 따라 설정 */
     margin-bottom: 0;
+    /*padding-top: -20px;*/
   }
 }
 
@@ -1380,7 +1382,12 @@ section, .section {
   content: "";
   z-index: 1;
 }
-
+@media (max-width: 767px) {
+  .icon-box {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
 
 /*--------------------------------------------------------------
 # About Section
@@ -1603,11 +1610,11 @@ section, .section {
 # Stats Section
 --------------------------------------------------------------*/
 .stats {
-  margin-bottom: 70px;
+  padding-bottom: 70px;
 }
 
 .stats .stats-item {
-  padding: 30px;
+  padding: 10px;
   width: 100%;
 }
 
