@@ -1181,7 +1181,7 @@ section, .section {
 .about-img-pc {
   position: relative;
   width: 100%;
-  height: 700px;
+  height: auto;
   display: block;
   margin-bottom: 0;
   max-width: 1500px; /* 최대 너비를 1500px로 제한합니다 */
@@ -1243,14 +1243,14 @@ section, .section {
   }
 }
 
-@media (min-width: 1500px) {
-  /* PC 환경에서 1500px 이상의 화면 */
-  .about-img-pc {
-    max-width: 1700px; /* 최대 너비를 1500px로 제한합니다 */
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
+/*@media (min-width: 1500px) {*/
+/*  !* PC 환경에서 1500px 이상의 화면 *!*/
+/*  .about-img-pc {*/
+/*    max-width: 1700px; !* 최대 너비를 1500px로 제한합니다 *!*/
+/*    margin-left: auto;*/
+/*    margin-right: auto;*/
+/*  }*/
+/*}*/
 
 /*--------------------------------------------------------------
 # content Section
